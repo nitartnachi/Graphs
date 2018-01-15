@@ -30,26 +30,26 @@ public class GraphUtils {
 		public String toString(){
 			return "value: "+ this.val; 
 		}
+	}
+	
+	public static GraphNode createGraph() {
+		GraphNode n1 = new GraphNode(1); 
+		GraphNode n2 = new GraphNode(2); 
+		GraphNode n3 = new GraphNode(3); 
+		GraphNode n4 = new GraphNode(4); 
+		GraphNode n5 = new GraphNode(5); 
+ 
+		n1.neighbors = new ArrayList<GraphNode>(Arrays.asList(n2,n3,n5));
+		n2.neighbors = new ArrayList<GraphNode>(Arrays.asList(n1,n4));
+		n3.neighbors = new ArrayList<GraphNode>(Arrays.asList(n1,n4,n5));
+		n4.neighbors = new ArrayList<GraphNode>(Arrays.asList(n2,n3,n5));
+		n5.neighbors = new ArrayList<GraphNode>(Arrays.asList(n1,n3,n4));
 		
-		public static GraphNode createGraph() {
-			GraphNode n1 = new GraphNode(1); 
-			GraphNode n2 = new GraphNode(2); 
-			GraphNode n3 = new GraphNode(3); 
-			GraphNode n4 = new GraphNode(4); 
-			GraphNode n5 = new GraphNode(5); 
-	 
-			n1.neighbors = new ArrayList<GraphNode>(Arrays.asList(n2,n3,n5));
-			n2.neighbors = new ArrayList<GraphNode>(Arrays.asList(n1,n4));
-			n3.neighbors = new ArrayList<GraphNode>(Arrays.asList(n1,n4,n5));
-			n4.neighbors = new ArrayList<GraphNode>(Arrays.asList(n2,n3,n5));
-			n5.neighbors = new ArrayList<GraphNode>(Arrays.asList(n1,n3,n4));
-			
-			return n1;
-		}
+		return n1;
 	}
 	
 	public static void main(String[] args) {
-		GraphNode root = GraphNode.createGraph();
+		GraphNode root = createGraph();
 		System.out.println("BFS Traversal");
 		bfsTraversal(root);
 	}

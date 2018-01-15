@@ -13,7 +13,7 @@ import com.nitin.algo.GraphUtils.GraphNode;
 public class BFS {
 	
 	public static void main(String[] args) {
-		GraphNode root = GraphNode.createGraph();
+		GraphNode root = GraphUtils.createGraph();
 		System.out.println("BFS Traversal");
 		bfsTraversal(root);
 	}
